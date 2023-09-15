@@ -5,10 +5,8 @@ import com.atguigu06.project.team.domain.*;
 
 /**
  * className: NameListService
- * test
  * Package : com.atguigu06.project.team.service
  * Description:
- *
  * @Author gzzz
  * @Create 2023/9/4 2:04
  * @Version 1.0
