@@ -1,0 +1,11 @@
+class CompareTest
+{
+	public static void main(String[] args){
+		
+		int a1,b1;
+		a1 = 10;
+		b1 = 20;
+		System.out.println(a1==b1);//false
+		System.out.println(a1=b1);//20
+	}
+}
