@@ -11,6 +11,7 @@ package com.atguigu06.project.team.service;
  */
 public class TeamException extends RuntimeException{
     public TeamException() {
+
     }
 
     public TeamException(String message) {
