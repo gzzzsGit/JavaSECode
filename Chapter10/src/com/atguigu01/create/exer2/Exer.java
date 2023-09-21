@@ -8,6 +8,7 @@ public class Exer {
         A a = new A();
         a.start();
 
+
         B b = new B(a);
         b.start();
 
@@ -25,12 +26,12 @@ class A extends Thread {
 
 //创建线程类B
 class B extends Thread {
-    private A a;
 
     public B(A a) {//构造器中，直接传入A类对象
-        this.a = a;
+        super(a);
     }
 
+    //注释掉结果会变成线程A的run()...具体看源码
     @Override
     public void run() {
         System.out.println("线程B的run()...");

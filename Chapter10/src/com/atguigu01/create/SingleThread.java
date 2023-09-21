@@ -20,4 +20,5 @@ public class SingleThread {
         s.method2("hello!");
     }
 
+
 }
