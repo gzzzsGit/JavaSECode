@@ -9,7 +9,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 
 class NumberThread implements Runnable{
-
     @Override
     public void run() {
         for(int i = 0;i <= 100;i++){
@@ -21,7 +20,6 @@ class NumberThread implements Runnable{
 }
 
 class NumberThread1 implements Runnable{
-
     @Override
     public void run() {
         for(int i = 0;i <= 100;i++){
@@ -50,5 +48,4 @@ public class ThreadPool {
         //3.关闭连接池
         service.shutdown();
     }
-
 }

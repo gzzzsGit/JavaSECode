@@ -22,12 +22,11 @@ public class Exer1 {
 
 class PrintNumber implements Runnable{
     private int number = 1;
-    Object obj = new Object();
     @Override
         public void run() {
             while (true){
-                synchronized (obj) {
-                    obj.notify();//唤醒一个wait的线程
+                synchronized (this) {
+                    notify();//唤醒一个wait的线程
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
@@ -37,7 +36,7 @@ class PrintNumber implements Runnable{
                         System.out.println(Thread.currentThread().getName()+':'+number);
                         number++;
                         try {
-                            obj.wait();//线程执行到这，阻塞，释放锁
+                            wait();//线程执行到这，阻塞，释放锁
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }

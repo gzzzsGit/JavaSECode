@@ -18,7 +18,6 @@ class NumThread implements Callable {
                 System.out.println(i);
                 sum += i;
             }
-//            Thread.sleep(1000);
         }
         return sum;
     }

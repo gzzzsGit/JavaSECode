@@ -40,8 +40,6 @@ public class BankTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-
         System.out.println(b1);
         System.out.println(b2);
         System.out.println(b1==b2);
