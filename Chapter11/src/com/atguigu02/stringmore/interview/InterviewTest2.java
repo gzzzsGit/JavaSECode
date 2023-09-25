@@ -7,7 +7,9 @@ package com.atguigu02.stringmore.interview;
 public class InterviewTest2 {
     public static void stringReplace(String text){
         text = text.replace('j','i');
+
     }
+
     public static void bufferReplace(StringBuffer text){
         text.append("C");
         text = new StringBuffer("Hello");
@@ -18,10 +20,10 @@ public class InterviewTest2 {
         String textString = new String("java");
         StringBuffer textBuffer = new StringBuffer("java");
 
-        stringReplace(textString);
-        bufferReplace(textBuffer);
+        stringReplace(textString);//java
+        bufferReplace(textBuffer);//helloworld
 
-        System.out.println(textString + textBuffer);//
+        System.out.println(textString + textBuffer);//javajavaC
 
     }
 }

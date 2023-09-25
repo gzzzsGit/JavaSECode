@@ -26,7 +26,6 @@ public class StringMethodTest1 {
         String s2 = null;
         System.out.println(s2.isEmpty());//空指针异常
 
-
     }
 
     @Test

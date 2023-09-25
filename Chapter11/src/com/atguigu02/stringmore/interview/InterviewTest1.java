@@ -11,12 +11,12 @@ public class InterviewTest1 {
 
         operate(a, b);
 
-        System.out.println(a + "," + b);//
+        System.out.println(a + "," + b);//ABx,B
     }
 
     public static void operate(StringBuffer x, StringBuffer y) {
-        x.append(y);
-        y = x;
-        y.append('x');
+        x.append(y);//AB
+        y = x;//AB
+        y.append('x');//ABx
     }
 }

@@ -40,34 +40,29 @@ public class StringAnswers {
     }
 
     //题目2：
-    // 方式一：
+    // 方式一：转化为字符数组做处理，再转换回字符串
     public String reverse1(String str, int start, int end) {// start:2,end:5
         if (str != null) {
-            // 1.
-            char[] charArray = str.toCharArray();
-            // 2.
-            for (int i = start, j = end; i < j; i++, j--) {
-                char temp = charArray[i];
-                charArray[i] = charArray[j];
-                charArray[j] = temp;
+            char arr[] = str.toCharArray();
+            while (start < end) {
+                char temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+                start++;
+                end--;
             }
-            // 3.
-            return new String(charArray);
-
+            return new String(arr);
         }
         return null;
 
     }
 
-    // 方式二：
+    // 方式二：分成三个子串，中间的字串从后往前遍历
     public String reverse2(String str, int start, int end) {
-        // 1.
-        String newStr = str.substring(0, start);// ab
-        // 2.
+        String newStr = str.substring(0, start);
         for (int i = end; i >= start; i--) {
             newStr += str.charAt(i);
-        } // abfedc
-        // 3.
+        }
         newStr += str.substring(end + 1);
         return newStr;
     }
@@ -94,7 +89,7 @@ public class StringAnswers {
     @Test
     public void testReverse() {
         String str = "abcdefg";
-        String str1 = reverse3(str, 2, 5);
+        String str1 = reverse2(str, 2, 5);
         System.out.println(str1);// abfedcg
 
     }
@@ -102,24 +97,16 @@ public class StringAnswers {
     //题目3：
     // 判断str2在str1中出现的次数
     public int getCount(String mainStr, String subStr) {
+        int count = 0;
         if (mainStr.length() >= subStr.length()) {
-            int count = 0;
-            int index = 0;
-            // while((index = mainStr.indexOf(subStr)) != -1){
-            // count++;
-            // mainStr = mainStr.substring(index + subStr.length());
-            // }
-            // 改进：
-            while ((index = mainStr.indexOf(subStr, index)) != -1) {
-                index += subStr.length();
+
+            int index = mainStr.indexOf(subStr);
+            while (index >= 0) {
                 count++;
+                index = mainStr.indexOf(subStr, index + subStr.length());
             }
-
-            return count;
-        } else {
-            return 0;
         }
-
+        return count;
     }
 
     @Test
