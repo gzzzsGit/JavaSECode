@@ -4,7 +4,7 @@ package com.atguigu04.compare;
  * @author shkstart
  * @create 11:45
  */
-public class Product { //商品类
+public class Product implements Comparable{ //商品类
 
     private String name;//商品名称
     private double price;//价格
@@ -43,4 +43,19 @@ public class Product { //商品类
     }
 
 
+    //
+    @Override
+    public int compareTo(Object o) {
+        if (o == this) {
+            return 0;
+        }
+        if (o instanceof Product){
+            Product p = (Product) o;
+            if (Double.compare(this.price, p.price)!=0)
+                return Double.compare(this.price, p.price);
+            return this.name.compareTo(p.name);
+        }
+
+        throw new RuntimeException("类型不匹配！");
+    }
 }
