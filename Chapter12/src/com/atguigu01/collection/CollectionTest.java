@@ -106,7 +106,8 @@ public void test3() {
     //retainAll(Collection coll) 取两个集合的交集
     Collection coll2 = new ArrayList();
     coll2.add("hello");
-    System.out.println(coll.retainAll(coll2));//true
+    coll.retainAll(coll2);
+    System.out.println(coll);//[hello]
 }
 
 @Test
