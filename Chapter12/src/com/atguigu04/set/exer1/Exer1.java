@@ -44,6 +44,7 @@ public class Exer1 {
 //        }
 //        return newList;
 
+        //方法二：可以直接转化
         HashSet hashSet = new HashSet<>(list);
         List newList = new ArrayList(hashSet);
         return newList;
