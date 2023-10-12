@@ -23,7 +23,6 @@ public class TCPTest3 {
         FileInputStream fis = null;
         Socket socket1 = null;
         OutputStream os = null;
-        ServerSocket serverSocket = null;
         FileOutputStream fos =null;
         ByteArrayOutputStream baos = null;
         try {
@@ -45,16 +44,16 @@ public class TCPTest3 {
                 os.write(buffer,0,len);
             }
             System.out.println("数据发送完毕");
-            socket1.shutdownOutput();
-            //接收数据
+            socket1.shutdownOutput();//表明数据发送完毕，告诉服务器端停止接收
 
+            //接收服务器返回的信号
             InputStream is = socket1.getInputStream();
             fos = new FileOutputStream("res.txt");
             baos = new ByteArrayOutputStream();
             while ((len = is.read(buffer)) != -1) {
                 baos.write(buffer,0,len);
             }
-            baos.writeTo(fos);
+            baos.writeTo(fos);//将baos里数组的内容写入fos流
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
@@ -98,7 +97,6 @@ public class TCPTest3 {
 
         try {
             //创建ServerSocket
-            InetAddress inetAddress = InetAddress.getByName("127.0.0.1");
             int port = 9090;
             ServerSocket serverSocket = new ServerSocket(port);
 
@@ -119,13 +117,12 @@ public class TCPTest3 {
             while ((len = is.read(buffer)) != -1) {
                 baos.write(buffer,0,len);
             }
-            baos.writeTo(fos);
-            System.out.println("数据接收完毕  ");
+            baos.writeTo(fos);//将baos里数组的内容写入fos流
+            System.out.println("数据接收完毕");
 
             //发送信息给客户端
             os = socket2.getOutputStream();
             os.write("发送成功！".getBytes());
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);

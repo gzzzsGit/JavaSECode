@@ -26,7 +26,7 @@ public class ChatServerTest {
 			online.add(socket);//把新连接的客户端添加到online列表中
 			
 			MessageHandler mh = new MessageHandler(socket);
-			mh.start();//
+			mh.start();//这个线程专门处理这个socket的信息
 		}
 	}
 	
@@ -40,6 +40,7 @@ public class ChatServerTest {
 		}
 
 		public void run(){
+			BufferedReader br = null;
 			try {
 				ip = socket.getInetAddress().getHostAddress();
 				
@@ -49,7 +50,7 @@ public class ChatServerTest {
 				//(1)接收该客户端的发送的消息
 				InputStream input = socket.getInputStream();
 				InputStreamReader reader = new InputStreamReader(input);
-				BufferedReader br = new BufferedReader(reader);
+				br = new BufferedReader(reader);
 				
 				String str;
 				while((str = br.readLine())!=null){
@@ -67,6 +68,11 @@ public class ChatServerTest {
 			}finally{
 				//从在线人员中移除我
 				online.remove(socket);
+				try {
+					br.close();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
 			}
 		}
 		

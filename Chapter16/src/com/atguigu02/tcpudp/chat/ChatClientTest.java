@@ -55,10 +55,11 @@ class Send extends Thread{
 				if("bye".equals(str)){
 					break;
 				}
-				ps.println(str);
+				ps.println(str);//打印到socket.getOutputStream()，即往服务器端打印
 			}
 			
 			input.close();
+			ps.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -82,6 +83,8 @@ class Receive extends Thread{
 				String line = input.nextLine();
 				System.out.println(line);
 			}
+			input.close();
+			inputStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
