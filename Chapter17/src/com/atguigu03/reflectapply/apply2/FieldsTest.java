@@ -16,16 +16,19 @@ public class FieldsTest {
 
         Class clazz = Person.class;
         //getFields():获取到运行时类本身及其所有的父类中声明为public权限的属性
-//		Field[] fields = clazz.getFields();
-//
-//		for(Field f : fields){
-//			System.out.println(f);
-//		}
+		Field[] fields = clazz.getFields();
+
+		for(Field f : fields){
+			System.out.println(f);//public int com.atguigu03.reflectapply.data.Person.age
+                                  //public int com.atguigu03.reflectapply.data.Creature.id
+		}
 
         //getDeclaredFields():获取当前运行时类中声明的所有属性
         Field[] declaredFields = clazz.getDeclaredFields();
         for(Field f : declaredFields){
-            System.out.println(f);
+            System.out.println(f);//private java.lang.String com.atguigu03.reflectapply.data.Person.name
+                                  // public int com.atguigu03.reflectapply.data.Person.age
+                                  //private static java.lang.String com.atguigu03.reflectapply.data.Person.info
         }
     }
 
@@ -52,16 +55,21 @@ public class FieldsTest {
              * if ((mod & FINAL) != 0)   说明修饰符中有final
              */
             int modifier = f.getModifiers();
-            System.out.print(modifier + ":" + Modifier.toString(modifier) + "\t");
+            System.out.print(modifier + ":" + Modifier.toString(modifier) + "\t");//2:private
+                                                                                  //1:public
+                                                                                  //10:private static
 
-//            //2.数据类型
+            //2.数据类型
             Class type = f.getType();
-            System.out.print(type.getName() + "\t");
-//
-//            //3.变量名
+            System.out.print(type.getName() + "\t");//java.lang.String
+                                                    //int
+                                                    //java.lang.String
+
+            //3.变量名
             String fName = f.getName();
-            System.out.print(fName);
-//
+            System.out.print(fName);//name
+                                    //age
+                                    //info
             System.out.println();
         }
     }
