@@ -15,7 +15,7 @@ public class AnnotationTest {
 
         @SuppressWarnings("deprecation") Person p1 = new Person("nre");
         @SuppressWarnings("unused") Person p2 = new Person();
-        System.out.println(p1.name);
+        System.out.println(p1.name);//nre
     }
 }
 
