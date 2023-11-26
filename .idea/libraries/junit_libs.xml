@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="junit-libs">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../BaiduNetdiskDownload/尚硅谷Java/06_软件与资料/06_软件与资料/05-资料/junit-libs" />
+      <root url="file://$PROJECT_DIR$/../../../BaiduNetdiskDownload/尚硅谷2023Java/06_软件与资料/06_软件与资料/05-资料/junit-libs" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/../../../BaiduNetdiskDownload/尚硅谷Java/06_软件与资料/06_软件与资料/05-资料/junit-libs" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../BaiduNetdiskDownload/尚硅谷2023Java/06_软件与资料/06_软件与资料/05-资料/junit-libs" recursive="false" />
   </library>
 </component>

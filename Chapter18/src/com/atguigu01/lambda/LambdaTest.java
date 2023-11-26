@@ -14,7 +14,7 @@ public class LambdaTest {
 
     @Test
     public void test1(){
-
+        // 语法格式一: 无参，无返回值
         Runnable r1 = new Runnable() {
             @Override
             public void run() {
@@ -25,7 +25,8 @@ public class LambdaTest {
 
         System.out.println("***********************");
         //Lambda表达式的写法
-
+        Runnable r2 = () -> System.out.println("我爱北京天安门");
+        r2.run();
     }
 
 
@@ -44,11 +45,13 @@ public class LambdaTest {
 
         System.out.println("***********************");
         //Lambda表达式的写法
-
+        Comparator<Integer> com2 = (o1,o2)-> Integer.compare(o1,o2);
+        System.out.println(com2.compare(22,21));
 
         System.out.println("***********************");
         //方法引用
-
+        Comparator<Integer> com3 = Integer::compare;
+        System.out.println(com3.compare(12,21));
 
     }
 
